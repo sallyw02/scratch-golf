@@ -57,3 +57,17 @@ Result: Claude updated PROJECT_CONTEXT.md with the decisions, drafted README.md 
 Changes and why: Dropped Lovable so every stage of the workflow runs through Claude Code, which keeps the AI usage in one place for grading. The tech stack is still open.
 
 Links: initial commit
+
+## 3. Settling the stack with grill-with-docs
+Date: 2026-10-14
+Stage: planning
+Tool: Claude Code (/grill-with-docs, then writing-for-agents)
+
+Prompt:
+> /mattpocock-skills:grill-with-docs help me settle the stack for this assignment
+
+Result: Three rounds of questions with recommended answers. Round 1 covered product shape, round 2 the language and domain rules, round 3 the database, data access and tooling. The session produced CONTEXT.md, five ADRs in docs/adr/, and a CLAUDE.md in the structure from class.
+
+Changes and why: I accepted every recommendation, which was fast but means I should check the ADRs closely in review. Asking product questions before the language question helped, because answers like "students have no accounts" and "emails are only logged" ruled out options before we compared frameworks.
+
+Links: branch docs/stack-decisions

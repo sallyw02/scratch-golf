@@ -1,6 +1,6 @@
 # Coding Standards
 
-These standards apply to all code in this repo and are what `/code-review` checks against. Stack-specific rules will be added once the tech stack is chosen.
+These standards apply to all code in this repo and are what `/code-review` checks against.
 
 ## General
 
@@ -28,6 +28,16 @@ New behavior comes with tests. Business rules such as the "needs attention" logi
 
 Each PR covers one ticket or one small change. The description says what changed, why, and how it was tested. PRs are reviewed by CodeRabbit and by `/code-review` before merging.
 
-## Stack-specific rules
+## Next.js, TypeScript and Drizzle
 
-To be added after the stack decision.
+Use TypeScript strict mode. Give exported functions explicit return types, and avoid `any`.
+
+Server components fetch data through `src/db/queries/`. Client components call the `/api` endpoints. All database access lives in `src/db/queries/`, and every function there takes a `coachId` (see `docs/adr/0002-drizzle-with-app-level-coach-scoping.md`).
+
+Validate every request body with a Zod schema at the top of the route handler, and return a 400 with the validation errors when it fails.
+
+Store times in UTC and display them in the Coach's time zone.
+
+Reuse shadcn/ui components from `src/components/ui/` before writing new UI primitives. Style with Tailwind classes.
+
+Change the schema only in `src/db/schema.ts`, and commit the generated migration with it.
