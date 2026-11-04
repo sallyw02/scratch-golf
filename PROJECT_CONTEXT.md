@@ -53,7 +53,7 @@ Priority 2
 - **GitHub Actions** to run tests on every PR, and **Vercel or Render** for deployment.
 - **Resend** for email. For the MVP, emails are logged instead of sent, and real sending comes later.
 
-Open decisions: the exact tech stack (Python vs a TypeScript stack such as Next.js) and the database and auth provider.
+Stack (decided October 14, 2026): Next.js in TypeScript, Supabase for Postgres and auth, Drizzle ORM, Tailwind with shadcn/ui, FullCalendar, Vitest and Playwright, deployed on Vercel. The reasoning is in `docs/adr/`.
 
 ## Timeline
 
@@ -90,5 +90,5 @@ I also want a short `CODING_STANDARDS.md` early on so `/code-review` has standar
 
 - The proposal is written and the scope above is settled.
 - Email (Resend, logged for the MVP), PR review (CodeRabbit) and tooling (Claude Code only) are decided.
-- The repo has a README, this context file, CODING_STANDARDS.md and a prompt log. No app code exists yet.
-- Next: install the Matt Pocock skills plugin, then run the workflow above from step 1. Settle the tech stack during `/grill-with-docs` and record it as an ADR.
+- The stack is decided. `CONTEXT.md` (the glossary), five ADRs and `CLAUDE.md` are written. No app code exists yet.
+- Next: write the technical spec assignment, then run `/to-spec` and `/to-tickets` for Priority 1.
